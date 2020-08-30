@@ -66,15 +66,26 @@ candidate2.totalVotes();
 console.log("Candidate Shirley Chisholm's total votes are " + candidate2.totalVotes);
 
 // DECLARE A WINNER //
-var winner;
-var messageText;
+var winner = "";
 if (candidate1.totalVotes > candidate2.totalVotes){
-    candidate1 = winner;
+    winner = candidate1.name;
 }
 else if (candidate1.totalVotes == candidate2.totalVotes){
-    messageText = "The Election is a Draw!";
+    winner = "undetermined!  The election is a draw. The House of Representatives will immediately go into session.";
 }
 else {
-    candidate2 = winner;
+    winner = candidate2.name;
 }
-console.log("Congratulations, " + winner + " is our new President!");
+console.log("Our new President elect is, " + winner);
+
+
+
+
+
+
+
+
+
+
+
+
