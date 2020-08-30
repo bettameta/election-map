@@ -50,7 +50,7 @@ candidate1.totalVotes = function(){
 };  
 
 candidate1.totalVotes();
-console.log(candidate1.totalVotes);
+console.log("Candidate Carol Moseley Braun's total votes are " + candidate1.totalVotes);
 
 
 // FUNCTION FOR SHIRLEY'S TOTAL VOTES //
@@ -63,4 +63,18 @@ candidate2.totalVotes = function(){
     } 
 };  
 candidate2.totalVotes();
-console.log(candidate2.totalVotes);
+console.log("Candidate Shirley Chisholm's total votes are " + candidate2.totalVotes);
+
+// DECLARE A WINNER //
+var winner;
+var messageText;
+if (candidate1.totalVotes > candidate2.totalVotes){
+    candidate1 = winner;
+}
+else if (candidate1.totalVotes == candidate2.totalVotes){
+    messageText = "The Election is a Draw!";
+}
+else {
+    candidate2 = winner;
+}
+console.log("Congratulations, " + winner + " is our new President!");
