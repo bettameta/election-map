@@ -1,22 +1,28 @@
 // FACTORY FUNCTION TO ANNOUNCE EACH CANDIDATE //
-var presHopeful = function(fullName){ 
-
+var presHopeful = function(fullName, partyColor){ 
+// CANDIDATE OBJECTS //
     var candidate = {};
     candidate.name = fullName; 
-    candidate.electionResults = "null";  
-    candidate.totalVotes = 0; 
- 
+    candidate.party = partyColor;
+    candidate.electionResults = "null";          
+    candidate.totalVotes = 0;                   
+    
+
     candidate.announceHopeful = function(){
         console.log(this.name + ", showing election results of " + this.electionResults + " with " + this.totalVotes + 
         " total votes.");
         };
- 
+    
     candidate.announceHopeful();
+// IDENTIFY CANDIDATE BY NAME (ADDED PARTYCOLOR), RESULTS, AND TOTAL VOTES //
     return candidate;
 };
-// HERE ARE THE CANDIDATES //
-var candidate1 = presHopeful("Carol Moseley Braun");
-var candidate2 = presHopeful("Shirley Chisholm");
+// HERE ARE THE NAMED CANDIDATES (AND ADDED PARTYCOLOR) //
+var candidate1 = presHopeful("Margaret Chase Smith", [126, 31, 14]);   // RED //
+var candidate2 = presHopeful("Shirley Anita Chisholm", [14, 62, 126]); // BLUE //
+
+console.log(candidate1.party);
+console.log(candidate2.party);
 
 // ELECTION RESULTS FOR CAROL //
 candidate1.electionResults = [5, 1, 7 ,2, 33, 6, 4, 2, 1, 14, 8, 3, 1, 11, 11, 0 ,5 ,3, 3, 3, 7, 4, 8, 9, 3, 7, 
@@ -50,7 +56,7 @@ candidate1.totalVotes = function(){
 };  
 
 candidate1.totalVotes();
-console.log("Candidate Carol Moseley Braun's total votes are " + candidate1.totalVotes);
+console.log("Candidate Margaret Chase Smith's total votes are " + candidate1.totalVotes);
 
 
 // FUNCTION FOR SHIRLEY'S TOTAL VOTES //
@@ -63,7 +69,7 @@ candidate2.totalVotes = function(){
     } 
 };  
 candidate2.totalVotes();
-console.log("Candidate Shirley Chisholm's total votes are " + candidate2.totalVotes);
+console.log("Candidate Shirley Anita Chisholm's total votes are " + candidate2.totalVotes);
 
 // DECLARE A WINNER //
 var winner = "";
@@ -79,13 +85,8 @@ else {
 console.log("Our new President elect is, " + winner);
 
 
-
-
-
-
-
-
-
-
-
-
+    
+    
+    
+    
+    

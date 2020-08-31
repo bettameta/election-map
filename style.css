@@ -60,15 +60,18 @@ th, td {
   color: white;
 }
 .name-1 {
-  background-color: rgb(132,17,11);
+  /*-- REPUBLICAN PARTY RED --*/
+  background-color: rgb(126, 31, 14);
   color: white;
 }
 .name-2 {
-  background-color: rgb(245, 141, 136);
+  /*-- DEMOCRATIC PARTY BLUE --*/
+  background-color:  rgb(14, 62, 126);
   color: white;
 }
 .winner {
-  background-color: #f16059;
+  /* YELLOW FOR THE WIN COLUMN --*/
+  background-color: #eeea12;
   color: white;
 }
 
