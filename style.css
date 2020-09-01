@@ -56,7 +56,7 @@ th, td {
   color: white;
 }
 #countryResults th {
-  background-color: #f16059;
+  background-color: #d3c11f;
   color: white;
 }
 .name-1 {
@@ -71,7 +71,7 @@ th, td {
 }
 .winner {
   /* YELLOW FOR THE WIN COLUMN --*/
-  background-color: #eeea12;
+  background-color: #d3c11f;
   color: white;
 }
 

@@ -46,35 +46,35 @@ console.log (candidate2.electionResults);
 
 // --- *** STATE RESULTS TO DECLARE WINNER BY INDIVIDUAL STATE *** ---//   
 var setStateResults = function (state){
-// DECLARING EMPTY | [ANY] VALUE AS BASE FOR theStates[state].winner //
-theStates[state].winner = null;
-// IF SMITH HAS MORE VOTES THAN CHISHOLM //
-if (candidate1.electionResults[state] > candidate2.electionResults[state]){
-    
-    theStates[state].winner = candidate1;
-}
-// IF CHISHOLM HAS MORE VOTES THAN SMITH //
-else if (candidate2.electionResults[state] > candidate1.electionResults[state]){
+    // DECLARING EMPTY | [ANY] VALUE AS BASE FOR theStates[state].winner //
+    theStates[state].winner = null;
+    // IF SMITH HAS MORE VOTES THAN CHISHOLM //
+    if (candidate1.electionResults[state] > candidate2.electionResults[state]){
+        
+        theStates[state].winner = candidate1;
+    }
+    // IF CHISHOLM HAS MORE VOTES THAN SMITH //
+    else if (candidate2.electionResults[state] > candidate1.electionResults[state]){
 
-    theStates[state].winner = candidate2;
-}
-// ESTABLISH COLORS ALOCATED TO STATES BY WINNER OR DRAW //
-var stateWinner = theStates[state].winner;
-if (stateWinner !== null){
-    theStates[state].rgbColor = stateWinner.rgbcolor;
-}
-else theStates[state].rgbColor = [11, 32, 57];    
+        theStates[state].winner = candidate2;
+    }
+    // ESTABLISH COLORS ALOCATED TO STATES BY WINNER OR DRAW //
+    var stateWinner = theStates[state].winner;
+    if (stateWinner !== null){
+        theStates[state].rgbColor = stateWinner.rgbcolor;
+    }
+    else theStates[state].rgbColor = [11, 32, 57];    
 };
 
 
 
 // FUNCTION FOR CAROL'S TOTAL VOTES //
 candidate1.totalVotes = function(){
-this.totalVotes = 0;
-// FORMULA TO ADD ARRAY //
-for (var i = 0; i < this.electionResults.length; i++){        
-    this.totalVotes = this.totalVotes + this.electionResults[i];
-} 
+    this.totalVotes = 0;
+    // FORMULA TO ADD ARRAY //
+    for (var i = 0; i < this.electionResults.length; i++){        
+        this.totalVotes = this.totalVotes + this.electionResults[i];
+    } 
 };  
 
 candidate1.totalVotes();
@@ -83,33 +83,44 @@ console.log("Candidate Margaret Chase Smith's total votes are " + candidate1.tot
 
 // FUNCTION FOR SHIRLEY'S TOTAL VOTES //
 candidate2.totalVotes = function(){
-this.totalVotes = 0;
+    this.totalVotes = 0;
 
-for (var i = 0; i < this.electionResults.length; i++){
+    for (var i = 0; i < this.electionResults.length; i++){
 
-    this.totalVotes = this.totalVotes + this.electionResults[i];
-} 
+        this.totalVotes = this.totalVotes + this.electionResults[i];
+    } 
 };  
 candidate2.totalVotes();
 console.log("Candidate Shirley Anita Chisholm's total votes are " + candidate2.totalVotes);
 
 // DECLARE A WINNER //
 var winner = "";
-if (candidate1.totalVotes > candidate2.totalVotes){
-winner = candidate1.name;
-}
-else if (candidate1.totalVotes == candidate2.totalVotes){
-winner = "Undetermined!  The US election is a DRAW. The House of Representatives will immediately go into session.";
-}
-else {
-winner = candidate2.name;
+    if (candidate1.totalVotes > candidate2.totalVotes){
+    winner = candidate1.name;
+    }
+    else if (candidate1.totalVotes == candidate2.totalVotes){
+    winner = "Undetermined!  The US election is a DRAW. The House of Representatives will immediately go into session.";
+    }
+    else {
+    winner = candidate2.name;
 }
 console.log("Our New President Is... " + winner);
 
-/* FICTICIOUS PRESIDENTIAL RACE AND FUN HISTORICAL FACTS:
+// TOP TABLE WITH NATIONAL RESULTS //
+var topTable = document.getElementById("countryResults");
+// CLASS IDs = TD = 3RD CHILD ---------- [] = Y PLACEMENT //
+topTable.children[0].children[0].children[0].innerText = candidate1.name;
+topTable.children[0].children[0].children[1].innerText = candidate1.totalVotes;
+topTable.children[0].children[0].children[2].innerText = candidate2.name;
+topTable.children[0].children[0].children[3].innerText = candidate2.totalVotes;
+topTable.children[0].children[0].children[5].innerText = winner;
+
+
+/* ------------------------------
+FICTICIOUS PRESIDENTIAL RACE BASED ON HISTORICAL FACTS:
 -Margaret Chase Smith (1964) (REP)- Smith was the first woman to have her name placed in nomination for President by a major party. She received Republican primary votes in New Hampshire, Illinois, Massachusetts, Texas, and Oregon, among others, and had twenty-seven first ballot votes at the Republican National Convention. 
 -Shirley Anita Chisholm (1972) (DEM)- Chisholm was the first African American woman to seek a major party’s nomination for U.S. President. She campaigned throughout the country and was on the ballot in twelve primaries in what was largely an educational campaign. She received 151.95 delegate votes at the Democratic National Convention.
-*/
+---------------------------------*/
 
 
 
