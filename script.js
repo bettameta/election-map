@@ -69,7 +69,7 @@ var setStateResults = function (state){
     if (stateWinner !== null){
         theStates[state].rgbColor = stateWinner.partyColor;
     }
-    else theStates[state].rgbColor = [11, 32, 57];  
+    else theStates[state].rgbColor = [53, 11, 131];  
 
     // BOTTOM TABLE WILL DISPLAY STATE NAME AND ABR | TOTAL STATE VOTES PER CANDIDATE | WINNER OF THE STATE //
     var statesInfoTable = document.getElementById("stateResults");
@@ -85,7 +85,7 @@ var setStateResults = function (state){
         var names2Name = body.children[1].children[0];
         var names2Results = body.children[1].children[1];
     // WINNER ROW LAST VARIABLE = 2 //
-        var winnersName = body.children[2].children[2];
+        var ourWinner = body.children[2].children[1];
     
     // --- innerText VALUES FOR ABOVE VARIABLES ---//
     // HEADER //
@@ -97,13 +97,14 @@ var setStateResults = function (state){
     // NAME 2 //
     names2Name.innerText = candidate2.name;
     names2Results.innerText = candidate2.electionResults[state];
-    // IF THEN FOR WINNER RESULTS IN SPOT 2 OF CHART OH BOY, OH BOY...//
-   if (theStates[state].winner !== null){
-       winnersName.innertext = theStates[state].winner.name;
-   }
-   else {
-        theStates.innerText = "Draw"
-   }
+
+    // IF THEN FOR WINNER RESULTS IN SPOT 2 OF CHART *SO CLOSE* //
+    if (theStates[state].winner !== null){
+        ourWinner.innerText = theStates[state].winner.name;
+    } 
+    else {
+        ourWinner.innerText = "IT'S A DRAW!";
+    }
 };
 
 // FUNCTION FOR CAROL'S TOTAL VOTES //
