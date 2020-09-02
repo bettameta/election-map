@@ -11,7 +11,9 @@ var presHopeful = function(name, partyColor){
     
     // ANNOUNCE FUNCTION TO RETURN INDIVIDUAL CANDIDATES //
     candidate.announceHopeful = function(){
-        console.log(this.name + ", showing election results of " + this.electionResults + " with " + this.totalVotes + " total votes.");
+/*
+console.log(this.name + ", showing election results of " + this.electionResults + " with " + this.totalVotes + " total votes.");
+*/
     };
     
     candidate.announceHopeful();
@@ -19,11 +21,13 @@ var presHopeful = function(name, partyColor){
     return candidate;
 };
 // HERE ARE THE NAMED CANDIDATES (AND ADDED PARTYCOLOR) //
-var candidate1 = presHopeful("Margaret Chase Smith", [168,42,19]);   // RED //
-var candidate2 = presHopeful("Shirley Anita Chisholm", [18,79,158]); // BLUE //
+var candidate1 = presHopeful("Margaret Smith", [168,42,19]);   // RED //
+var candidate2 = presHopeful("Shirley Chisholm", [18,79,158]); // BLUE //
 
+/*
 console.log("Margaret Chase Smith's party color is " + candidate1.partyColor);
 console.log("Shirley Anita Chisholm' party color is " + candidate2.partyColor);
+*/
 
 // ELECTION RESULTS FOR MARGARET CHASE SMITH //
 candidate1.electionResults = [5, 1, 7 ,2, 33, 6, 4, 2, 1, 14, 8, 3, 1, 11, 11, 0 ,5 ,3, 3, 3, 7, 4, 8, 9, 3, 7, 2 , 2 , 4, 2, 8, 3, 15, 15, 2, 12, 0, 4, 13, 1, 3, 2, 8, 21, 3, 2, 11, 1, 3, 7, 2];
@@ -41,8 +45,10 @@ candidate2.electionResults[9] = 28;
 candidate2.electionResults[4] = 38;
 candidate2.electionResults[43] = 27;
 
+/*
 console.log (candidate1.electionResults);
 console.log (candidate2.electionResults);
+*/
 
 // --- *** STATE RESULTS TO DECLARE WINNER BY INDIVIDUAL STATE *** ---//   
 var setStateResults = function (state){
@@ -67,12 +73,38 @@ var setStateResults = function (state){
 
     // BOTTOM TABLE WILL DISPLAY STATE NAME AND ABR | TOTAL STATE VOTES PER CANDIDATE | WINNER OF THE STATE //
     var statesInfoTable = document.getElementById("stateResults");
-    var header = statesInfoTable.children[0].children[0];
-
-
+    // TOP ROW VARIABLES //
+    var header = statesInfoTable.children[0];
+        var stateName = header.children[0].children[0];
+        var abbrev = header.children[0].children[1];
+    // NAME1 ROW VARIABLES = 0 //
+    var body = statesInfoTable.children[1];
+        var names1Name = body.children[0].children[0];
+        var names1Results = body.children[0].children[1];
+    //NAME2 ROW VARIABLES = 1 //
+        var names2Name = body.children[1].children[0];
+        var names2Results = body.children[1].children[1];
+    // WINNER ROW LAST VARIABLE = 2 //
+        var winnersName = body.children[2].children[2];
+    
+    // --- innerText VALUES FOR ABOVE VARIABLES ---//
+    // HEADER //
+    stateName.innerText = theStates[state].nameFull;
+    abbrev.innerText = theStates[state].nameAbbrev;
+    //  NAME 1 //
+    names1Name.innerText = candidate1.name;
+    names1Results.innerText = candidate1.electionResults[state];
+    // NAME 2 //
+    names2Name.innerText = candidate2.name;
+    names2Results.innerText = candidate2.electionResults[state];
+    // IF THEN FOR WINNER RESULTS IN SPOT 2 OF CHART OH BOY, OH BOY...//
+   if (theStates[state].winner !== null){
+       winnersName.innertext = theStates[state].winner.name;
+   }
+   else {
+        theStates.innerText = "Draw"
+   }
 };
-
-
 
 // FUNCTION FOR CAROL'S TOTAL VOTES //
 candidate1.totalVotes = function(){
@@ -84,8 +116,9 @@ candidate1.totalVotes = function(){
 };  
 
 candidate1.totalVotes();
+/*
 console.log("Candidate Margaret Chase Smith's total votes are " + candidate1.totalVotes);
-
+*/
 
 // FUNCTION FOR SHIRLEY'S TOTAL VOTES //
 candidate2.totalVotes = function(){
@@ -97,7 +130,9 @@ candidate2.totalVotes = function(){
     } 
 };  
 candidate2.totalVotes();
+/*
 console.log("Candidate Shirley Anita Chisholm's total votes are " + candidate2.totalVotes);
+*/
 
 // DECLARE A WINNER //
 var winner = "";
@@ -110,7 +145,9 @@ var winner = "";
     else {
     winner = candidate2.name;
 }
+/*
 console.log("Our New President Is... " + winner);
+*/
 
 // TOP TABLE WITH NATIONAL RESULTS //
 var nationTable = document.getElementById("countryResults");
@@ -120,12 +157,6 @@ nationTable.children[0].children[0].children[1].innerText = candidate1.totalVote
 nationTable.children[0].children[0].children[2].innerText = candidate2.name;
 nationTable.children[0].children[0].children[3].innerText = candidate2.totalVotes;
 nationTable.children[0].children[0].children[5].innerText = winner;
-
-
-
-
-
-
 
 
 /* ------------------------------
