@@ -19,8 +19,8 @@ var presHopeful = function(name, partyColor){
     return candidate;
 };
 // HERE ARE THE NAMED CANDIDATES (AND ADDED PARTYCOLOR) //
-var candidate1 = presHopeful("Margaret Chase Smith", [126, 31, 14]);   // RED //
-var candidate2 = presHopeful("Shirley Anita Chisholm", [14, 62, 126]); // BLUE //
+var candidate1 = presHopeful("Margaret Chase Smith", [168,42,19]);   // RED //
+var candidate2 = presHopeful("Shirley Anita Chisholm", [18,79,158]); // BLUE //
 
 console.log("Margaret Chase Smith's party color is " + candidate1.partyColor);
 console.log("Shirley Anita Chisholm' party color is " + candidate2.partyColor);
@@ -61,9 +61,15 @@ var setStateResults = function (state){
     // ESTABLISH COLORS ALOCATED TO STATES BY WINNER OR DRAW //
     var stateWinner = theStates[state].winner;
     if (stateWinner !== null){
-        theStates[state].rgbColor = stateWinner.rgbcolor;
+        theStates[state].rgbColor = stateWinner.partyColor;
     }
-    else theStates[state].rgbColor = [11, 32, 57];    
+    else theStates[state].rgbColor = [11, 32, 57];  
+
+    // BOTTOM TABLE WILL DISPLAY STATE NAME AND ABR | TOTAL STATE VOTES PER CANDIDATE | WINNER OF THE STATE //
+    var statesInfoTable = document.getElementById("stateResults");
+    var header = statesInfoTable.children[0].children[0];
+
+
 };
 
 
@@ -107,13 +113,19 @@ var winner = "";
 console.log("Our New President Is... " + winner);
 
 // TOP TABLE WITH NATIONAL RESULTS //
-var topTable = document.getElementById("countryResults");
+var nationTable = document.getElementById("countryResults");
 // CLASS IDs = TD = 3RD CHILD ---------- [] = Y PLACEMENT //
-topTable.children[0].children[0].children[0].innerText = candidate1.name;
-topTable.children[0].children[0].children[1].innerText = candidate1.totalVotes;
-topTable.children[0].children[0].children[2].innerText = candidate2.name;
-topTable.children[0].children[0].children[3].innerText = candidate2.totalVotes;
-topTable.children[0].children[0].children[5].innerText = winner;
+nationTable.children[0].children[0].children[0].innerText = candidate1.name;
+nationTable.children[0].children[0].children[1].innerText = candidate1.totalVotes;
+nationTable.children[0].children[0].children[2].innerText = candidate2.name;
+nationTable.children[0].children[0].children[3].innerText = candidate2.totalVotes;
+nationTable.children[0].children[0].children[5].innerText = winner;
+
+
+
+
+
+
 
 
 /* ------------------------------

@@ -61,12 +61,12 @@ th, td {
 }
 .name-1 {
   /*-- REPUBLICAN PARTY RED --*/
-  background-color: rgb(126, 31, 14);
+  background-color: rgb(168, 42, 19);
   color: white;
 }
 .name-2 {
   /*-- DEMOCRATIC PARTY BLUE --*/
-  background-color:  rgb(14, 62, 126);
+  background-color:  rgb(18, 79, 158);
   color: white;
 }
 .winner {
