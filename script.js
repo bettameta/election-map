@@ -1,3 +1,8 @@
+/* ------------------------------
+FICTICIOUS PRESIDENTIAL RACE BASED ON HISTORICAL FACTS:
+-Margaret Chase Smith (1964) (REP)- Smith was the first woman to have her name placed in nomination for President by a major party. She received Republican primary votes in New Hampshire, Illinois, Massachusetts, Texas, and Oregon, among others, and had twenty-seven first ballot votes at the Republican National Convention. 
+-Shirley Anita Chisholm (1972) (DEM)- Chisholm was the first African American woman to seek a major party’s nomination for U.S. President. She campaigned throughout the country and was on the ballot in twelve primaries in what was largely an educational campaign. She received 151.95 delegate votes at the Democratic National Convention.
+---------------------------------*/
 // FACTORY FUNCTION TO ANNOUNCE EACH CANDIDATE //
 var presHopeful = function(name, partyColor){ 
     // CANDIDATE OBJECTS //
@@ -160,11 +165,7 @@ nationTable.children[0].children[0].children[3].innerText = candidate2.totalVote
 nationTable.children[0].children[0].children[5].innerText = winner;
 
 
-/* ------------------------------
-FICTICIOUS PRESIDENTIAL RACE BASED ON HISTORICAL FACTS:
--Margaret Chase Smith (1964) (REP)- Smith was the first woman to have her name placed in nomination for President by a major party. She received Republican primary votes in New Hampshire, Illinois, Massachusetts, Texas, and Oregon, among others, and had twenty-seven first ballot votes at the Republican National Convention. 
--Shirley Anita Chisholm (1972) (DEM)- Chisholm was the first African American woman to seek a major party’s nomination for U.S. President. She campaigned throughout the country and was on the ballot in twelve primaries in what was largely an educational campaign. She received 151.95 delegate votes at the Democratic National Convention.
----------------------------------*/
+
 
 
 
